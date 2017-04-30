@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "issoseva.org",
+  "version": "1.0.0",
+  "description": "ISSO Seva Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issoseva/issoseva.org.git"
+  },
+  "author": "issoseva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/issoseva/issoseva.org/issues"
+  },
+  "homepage": "https://github.com/issoseva/issoseva.org#readme",
+  "devDependencies": {
+    "express": "^4.15.2",
+    "express-static": "^1.1.0",
+    "google-spreadsheet": "^2.0.3"
+  }
+}
