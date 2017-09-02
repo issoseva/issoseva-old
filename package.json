@@ -3,7 +3,7 @@
   "name": "issoseva.org",
   "version": "1.0.0",
   "description": "ISSO Seva Website",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/issoseva/issoseva.org#readme",
   "devDependencies": {
-    "express": "^4.15.2",
-    "express-static": "^1.1.0",
-    "google-spreadsheet": "^2.0.3"
+    "connect": "^3.6.3",
+    "eslint": "^4.6.0",
+    "node-fieldbook": "^1.1.1",
+    "pug": "^2.0.0-rc.3",
+    "requestify": "^0.2.5",
+    "serve-static": "^1.12.4"
   }
 }
