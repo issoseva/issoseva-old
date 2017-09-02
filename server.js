@@ -1,9 +1,13 @@
 const connect = require(`connect`)
 const static = require(`serve-static`)
-const config = require(`./config`)
+const config = require(`./server/config`)
+const api = require(`./server/api`)
 
 const app = connect()
-app.use(static(`www`))
+app.use(`/`, api)
+app.use(`/`, static(`www`))
+
+console.log(connect, `adsf`)
 
 // Listen for requests
 const server = app.listen(config.port, () => {

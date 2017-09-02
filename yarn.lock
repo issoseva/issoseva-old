@@ -1121,6 +1121,10 @@ qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
+quip@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/quip/-/quip-0.1.2.tgz#f9a865ac354a0e2326d9b1fc1ce7e6ad3c23db9d"
+
 range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
