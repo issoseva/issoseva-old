@@ -2,5 +2,10 @@
   "name": "issoseva.org",
   "script": "server.js",
   "watch": true,
-  "ignore_watch": ["node_modules", "www"]
+  "ignore_watch": ["node_modules", "www"],
+  "watch_options": {
+    "followSymlinks": false,
+    "usePolling": true,
+    "interval": 1000
+  }
 }
