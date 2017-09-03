@@ -3,7 +3,7 @@ const fs = require(`fs`)
 const path = require(`path`)
 const writeFile = promisify(fs.writeFile)
 const Fieldbook = require(`node-fieldbook`)
-const config = require(`./config`)
+const config = require(`../config`)
 
 const book = new Fieldbook(config.fieldbook)
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
