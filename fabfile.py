@@ -5,7 +5,7 @@ def deploy(branch='master'):
 
     with settings(user='root', host_string='new.issoseva.org'):
         with cd('/root/issoseva.org'):
-            run("pm2 stop app.json")
+            run("pm2 delete app.json")
             run("git fetch origin %s" % branch)
             run("git reset --hard origin/%s" % branch)
             run("yarn install")
