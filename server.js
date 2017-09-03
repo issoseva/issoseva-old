@@ -1,15 +1,13 @@
 const connect = require(`connect`)
-const static = require(`serve-static`)
-const compression = require(`compression`)
-const responseTime = require(`response-time`)
 const config = require(`./config`)
 const api = require(`./server/api`)
 
 const app = connect()
-app.use(responseTime())
-app.use(compression())
+app.use(require(`response-time`)())
+app.use(require(`compression`)())
+app.use(require(`quip`))
 app.use(api)
-app.use(static(`www`))
+app.use(require(`serve-static`)(`www`))
 
 // Listen for requests
 const server = app.listen(config.port, () => {

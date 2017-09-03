@@ -1,7 +1,6 @@
 const fs = require(`fs`)
 const path = require(`path`)
 const bodyParser = require(`body-parser`)
-const quip = require(`quip`)
 const pug = require(`pug`)
 const router = require(`router`)()
 const Fieldbook = require(`node-fieldbook`)
@@ -24,7 +23,6 @@ const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
 
 // Router
 router.use(bodyParser.json())
-router.use(quip)
 
 router.get(`/`, async (req, res) => {
   res.html(indexHtml)
