@@ -1,6 +1,5 @@
 const connect = require(`connect`)
 const static = require(`serve-static`)
-const quip = require(`quip`)
 const compression = require(`compression`)
 const responseTime = require(`response-time`)
 const config = require(`./config`)

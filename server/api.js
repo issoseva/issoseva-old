@@ -4,6 +4,10 @@ const bodyParser = require(`body-parser`)
 const quip = require(`quip`)
 const pug = require(`pug`)
 const router = require(`router`)()
+const Fieldbook = require(`node-fieldbook`)
+const config = require(`../config`)
+
+const book = new Fieldbook(config.fieldbook)
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
 
 // Read at initialization time for caching speed
@@ -25,9 +29,22 @@ router.get(`/`, async (req, res) => {
   res.html(indexHtml)
 })
 
-router.post(`/api/fieldbook-hook`, (req, res) => {
+router.post(`/api/fieldbook-hook`, async (req, res) => {
   console.log(`fieldbook-hook`)
-  console.log(req.body)
+  const hook = req.body
+  console.log(JSON.stringify(hook, null, `  `))
+
+  // We get the change in hook, we should probably modify in place
+  // rather than fetching entire table
+  // but fetching entire table always gives us most consistent view
+  if (hook) {
+    const sheet = Object.keys(hook.changes)[0]
+    const rows = await book.getSheet(sheet)
+    console.log(sheet, rows)
+    const json = JSON.stringify(rows, null, `  `)
+    fs.writeFileSync(`${fieldbookDir}/${sheet}.json`, json)
+  }
+
   res.end()
 })
 
