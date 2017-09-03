@@ -19,4 +19,10 @@ router.get(`/`, async (req, res) => {
   res.html(indexTemplate({info, events, stats, projects, testimonials}))
 })
 
+router.post(`/api/fieldbook-hook`, (req, res) => {
+  console.log(`fieldbook-hook`)
+  console.log(req.body)
+  res.end()
+})
+
 module.exports = router

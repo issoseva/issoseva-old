@@ -16,5 +16,9 @@ async function main() {
     const json = JSON.stringify(rows, null, `  `)
     await writeFile(`${fieldbookDir}/${sheet}.json`, json)
   }
+
+  // console.log(await book.addWebhook({
+  //   url: `http://new.issoseva.org/api/fieldbook-hook` //Basic Auth: https://user:pass@example.com/callback
+  // }))
 }
 main()
