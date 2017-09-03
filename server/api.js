@@ -22,7 +22,8 @@ const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
 
 // Router
 router.get(`/`, (req, res) => {
-  res.send(indexHtml)
+  res.setHeader(`Content-Type`, `text/html`)
+  res.end(indexHtml)
 })
 
 router.post(`/api/fieldbook-hook`, async (req, res) => {
@@ -43,7 +44,7 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
     console.log(`Written ${rows.length} records to ${jsonFile}`)
   }
 
-  res.send(``)
+  res.end(``)
 })
 
 module.exports = router
