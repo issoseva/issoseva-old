@@ -1,7 +1,7 @@
 const fs = require(`fs`)
 const path = require(`path`)
-// const promisify = require(`util`).promisify
-// const readFile = promisify(fs.readFile)
+const bodyParser = require(`body-parser`)
+const quip = require(`quip`)
 const pug = require(`pug`)
 const router = require(`router`)()
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
@@ -17,6 +17,9 @@ const testimonials = []
 // Pre-compile template into memory
 const indexTemplate = pug.compile(fs.readFileSync(`${__dirname}/index.pug`))
 const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
+
+router.use(bodyParser.json())
+router.use(quip)
 
 router.get(`/`, async (req, res) => {
   res.html(indexHtml)
