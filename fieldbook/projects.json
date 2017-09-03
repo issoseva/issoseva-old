@@ -1,0 +1,110 @@
+[
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/59ab2187fa77940300891ec5",
+    "name": "Houston hurricane",
+    "visibility": "published",
+    "blurb": "We have opened up the temple to serve as a shelter. We are raising funds at temples and via Paypal with goal to raise 5K to 7K",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/59ab21742f0d9203009c067a",
+    "name": "Gujarat relief",
+    "visibility": "published",
+    "blurb": "Temples are raising Gujarat Flood Relief Fund since July. In process of collecting all funds and determining how we going to provide the relief",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 3,
+    "record_url": "https://fieldbook.com/records/59ab21a07d0212030074855e",
+    "name": "Soup kitchen",
+    "visibility": "published",
+    "blurb": "Volunteer team in Seattle started soup kitchen service  at a  shelter for women and child in need once a month. Since then the service has expanded to 3 different soup kitchens.",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 4,
+    "record_url": "https://fieldbook.com/records/59ab21a9ad55330300839f1c",
+    "name": "Blood drives",
+    "visibility": "draft",
+    "blurb": "Volunteers set up annual blood drives to combat the shortage of blood in various regions.",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 9,
+    "record_url": "https://fieldbook.com/records/59ab23cead55330300839f25",
+    "name": "Free healthcare",
+    "visibility": "published",
+    "blurb": "Chicago and Boston temple hosts medical checkup camps elderly and people in need on monthly basis. The camp serves large number of patients for basic medical needs like blood tests, glucose tests.",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": [
+      {
+        "id": 1,
+        "name": "Medical/Dental Camp"
+      },
+      {
+        "id": 2,
+        "name": "Health Fair"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "record_url": "https://fieldbook.com/records/59ab21b1e70c33030045bbad",
+    "name": "Bone marrow screenings",
+    "visibility": "hidden",
+    "blurb": null,
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 6,
+    "record_url": "https://fieldbook.com/records/59ab21b89377f20300e1cd52",
+    "name": "Food drive",
+    "visibility": "published",
+    "blurb": "Volunteers hold a food drive during Thanksgiving.  Canned foods and other essentials are collected and distributed to local shelters.",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 7,
+    "record_url": "https://fieldbook.com/records/59ab21c0c21591030076b59f",
+    "name": "Big clothing drive",
+    "visibility": "published",
+    "blurb": "Volunteers hosted a donation drive and collected clothes for those in need.",
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  },
+  {
+    "id": 8,
+    "record_url": "https://fieldbook.com/records/59ab21c7c21591030076b5a1",
+    "name": "Volunteering at VA Hospital",
+    "visibility": "published",
+    "blurb": null,
+    "donate_link": null,
+    "image": null,
+    "author": null,
+    "events": []
+  }
+]

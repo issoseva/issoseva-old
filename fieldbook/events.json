@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/59ab23678020320300b38122",
+    "name": "Medical/Dental Camp",
+    "visibility": "published",
+    "date": "2017-09-01",
+    "location": "Boston Temple",
+    "blurb": null,
+    "image": null,
+    "project": [
+      {
+        "id": 9,
+        "name": "Free healthcare"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/59ab236ff087ab03007e9ae8",
+    "name": "Health Fair",
+    "visibility": "published",
+    "date": "2017-09-10",
+    "location": "Chicago Temple",
+    "blurb": null,
+    "image": null,
+    "project": [
+      {
+        "id": 9,
+        "name": "Free healthcare"
+      }
+    ]
+  }
+]

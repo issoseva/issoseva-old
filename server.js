@@ -1,13 +1,18 @@
 const connect = require(`connect`)
 const static = require(`serve-static`)
+const quip = require(`quip`)
+const compression = require(`compression`)
+const bodyParser = require(`body-parser`)
+const responseTime = require(`response-time`)
 const config = require(`./server/config`)
 const api = require(`./server/api`)
 
 const app = connect()
-app.use(`/`, api)
-app.use(`/`, static(`www`))
-
-console.log(connect, `adsf`)
+app.use(responseTime())
+app.use(compression())
+app.use(quip)
+app.use(api)
+app.use(static(`www`))
 
 // Listen for requests
 const server = app.listen(config.port, () => {
