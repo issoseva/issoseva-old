@@ -38,7 +38,7 @@ router.get(`/`, (req, res) => {
 router.post(`/api/fieldbook-hook`, async (req, res) => {
   console.log(`fieldbook-hook`)
   const hook = req.body
-  console.log(JSON.stringify(hook, null, `  `))
+  // console.log(JSON.stringify(hook, null, `  `))
 
   // We get the change in hook, we should probably modify in place
   // rather than fetching entire table
