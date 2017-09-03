@@ -38,25 +38,7 @@
   {
     "id": 3,
     "record_url": "https://fieldbook.com/records/59ab1e969377f20300e1cd4b",
-    "name": "social_twitter",
-    "value": "https://twitter.com/issoseva"
-  },
-  {
-    "id": 5,
-    "record_url": "https://fieldbook.com/records/59ab1ee7c21591030076b58c",
-    "name": "social_instagram",
-    "value": "https://www.instagram.com/issoseva/"
-  },
-  {
-    "id": 6,
-    "record_url": "https://fieldbook.com/records/59ab1ef1e70c33030045bba3",
-    "name": "social_tumblr",
-    "value": "http://blog.issoseva.org"
-  },
-  {
-    "id": 4,
-    "record_url": "https://fieldbook.com/records/59ab1ec8a41b540300366501",
-    "name": "social_yooying",
-    "value": "http://yooying.com/issoseva"
+    "name": "social_links",
+    "value": "https://twitter.com/issoseva\nhttps://instagram.com/issoseva/\nhttps://blog.issoseva.org\nhttp://yooying.com/issoseva"
   }
 ]

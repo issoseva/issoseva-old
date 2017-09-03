@@ -36,20 +36,14 @@ html
           header.style1
             h2 Over the last past decade we have served:
           .feature-list
-            .row
-              div(class='6u 12u(mobile)')
-                section
-                  h3.icon.fa-comment  100,000+ free meals
-              div(class='6u 12u(mobile)')
-                section
-                  h3.icon.fa-refresh  5000+ blood donations
-            .row
-              div(class='6u 12u(mobile)')
-                section
-                  h3.icon.fa-picture-o  3000+ bonemarrow screening
-              div(class='6u 12u(mobile)')
-                section
-                  h3.icon.fa-cog  50000+ patients medicated
+            - const numStats = stats.length
+            - const rows = [stats.splice(0, numStats), stats.splice(numStats)]
+            each row in rows
+              .row
+                each stat in row
+                  div(class='6u 12u(mobile)')
+                    section
+                      h3.icon.fa-refresh= stat.name
           ul.actions.actions-centered
             li
               a.button.style1.big(href=info.donate_url, target='_blank') Donate
@@ -209,32 +203,29 @@ html
                 div(class='6u 12u(mobile)')
                   section
                     h3.icon.fa-home Mailing Address
+                    - const addressLines = info.address.split('\n')
                     p
-                      | Untitled Corporation
-                      br
-                      | 1234 Somewhere Rd #987
-                      br
-                      | Nashville, TN 00000-0000
+                      each line in addressLines
+                        = line
+                        br
                 div(class='6u 12u(mobile)')
                   section
                     h3.icon.fa-comment Social
+                    - const socialLinks = info.social_links.split('\n')
                     p
-                      a(href='#') @untitled-corp
-                      br
-                      a(href='#') linkedin.com/untitled
-                      br
-                      a(href='#') facebook.com/untitled
+                      each link in socialLinks
+                        a(href=link, target='_blank')= link.replace(/^https?:\/\//,'')
+                        br
               .row
                 div(class='6u 12u(mobile)')
                   section
                     h3.icon.fa-envelope Email
                     p
-                      a(href='#') info@untitled.tld
+                      a(href='#')= info.email
                 div(class='6u 12u(mobile)')
                   section
                     h3.icon.fa-phone Phone
-                    p
-                      | (000) 555-0000
+                    p= info.phone
         hr
       #copyright
         ul
