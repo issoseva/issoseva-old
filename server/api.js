@@ -22,6 +22,7 @@ const testimonials = []
 const indexTemplate = pug.compile(fs.readFileSync(`${__dirname}/index.pug`))
 const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
 
+// Router
 router.use(bodyParser.json())
 router.use(quip)
 
@@ -40,9 +41,11 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
   if (hook) {
     const sheet = Object.keys(hook.changes)[0]
     const rows = await book.getSheet(sheet)
-    console.log(sheet, rows)
     const json = JSON.stringify(rows, null, `  `)
-    fs.writeFileSync(`${fieldbookDir}/${sheet}.json`, json)
+    const jsonFile = `${fieldbookDir}/${sheet}.json`
+    console.log(json)
+    fs.writeFileSync(jsonFile, json)
+    console.log(`Written ${rows.length} records to ${jsonFile}`)
   }
 
   res.end()
