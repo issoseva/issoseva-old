@@ -3,7 +3,7 @@ const config = require(`./config`)
 const api = require(`./server/api`)
 
 const app = connect()
-app.use(require(`quip`)) // Needs to be first because it does header hacking
+// app.use(require(`quip`)) // Needs to be first because it does header hacking
 app.use(require(`response-time`)())
 app.use(require(`compression`)())
 app.use(require(`body-parser`).json())
