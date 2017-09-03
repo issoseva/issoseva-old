@@ -1,6 +1,5 @@
 const fs = require(`fs`)
 const path = require(`path`)
-const bodyParser = require(`body-parser`)
 const pug = require(`pug`)
 const router = require(`router`)()
 const Fieldbook = require(`node-fieldbook`)
@@ -22,8 +21,6 @@ const indexTemplate = pug.compile(fs.readFileSync(`${__dirname}/index.pug`))
 const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
 
 // Router
-router.use(bodyParser.json())
-
 router.get(`/`, async (req, res) => {
   res.html(indexHtml)
 })
