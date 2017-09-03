@@ -74,73 +74,17 @@ html
           p= info.top_programs_blurb
         br
         section
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg);')
-            .col.col-text
-              .Aligner-item
-                p
-                  | Free Soup kitchens
-                p
-                  | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                p
-                a(href='https://www.paypal.com/donate/?token=0STvTr7y3epwODkMniduUuOTKDt2hCfCkyA7GSQkEBFk0yTwDckDaZpcS-gU-d7zM7Be3m&country.x=US&locale.x=US', target='_blank') Donate
-                br
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-library-sm.jpg);')
-            .col.col-text.col-left
-              .Aligner-item
-                p
-                  | Blood Donations
-                p
-                  | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                p
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-skylight-sm.jpg);')
-            .col.col-text
-              .Aligner-item
-                p
-                  | Free Healthcare
-                p
-                  | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                p
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/madison-overture.jpg);')
-            .col.col-text.col-left
-              .Aligner-item
-                p
-                  | Bone marrow screening
-                p
-                  | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                p
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/madison-rainbow.jpg);')
-            .col.col-text
-              .Aligner-item
-                p
-                  | Food Drive
-                p
-                  | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                p
-          .grid-flex
-            .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/madison-rainbow.jpg);')
-            .col.col-text.col-left
-              .col.col-text.col-left
-                .Aligner-item
-                  p
-                    | Big clothing drive
-                  p
-                    | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                  p
+          each project, idx in projects
             .grid-flex
-              .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/madison-rainbow.jpg);')
-              .col.col-text
-                .Aligner-item
-                  p
-                    | Volunteering at VA Hospital
-                  p
-                    | lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                  p
-    if testimonials.length
+              .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg);')
+              .col.col-text(class=(idx % 2 == 0 ? '' : 'col-left'))
+                .aligner-item
+                  h3= project.name
+                  br
+                  p= project.blurb
+                  p= project.author || ''
+
+    //
       .wrapper.style3
         .title Testimonials
         #highlights.container
