@@ -21,7 +21,7 @@ const indexTemplate = pug.compile(fs.readFileSync(`${__dirname}/index.pug`))
 const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
 
 // Router
-router.get(`/`, async (req, res) => {
+router.get(`/`, (req, res) => {
   res.html(indexHtml)
 })
 
