@@ -1,11 +1,13 @@
 const fs = require(`fs`)
-const readFile = require(`util`).promisify(fs.readFile)
+const promisify = require(`util`).promisify
+const readFile = promisify(fs.readFile)
+const writeFile = promisify(fs.writeFile)
+const exec = promisify(require(`child_process`).exec)
 const path = require(`path`)
 const pug = require(`pug`)
 const router = require(`router`)()
 const Fieldbook = require(`node-fieldbook`)
 const config = require(`../config`)
-
 const book = new Fieldbook(config.fieldbook)
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
 
@@ -35,6 +37,24 @@ router.get(`/`, (req, res) => {
   res.end(indexHtml)
 })
 
+router.get(`/attachments/*`, async (req, res) => {
+  const auth = `${config.fieldbook.username}:${config.fieldbook.password}`
+  const attachmentUrl = req.url
+  //const attachmentPath = path.normalize(`${__dirname}/../fieldbook/attachments`)
+  const curlCmd = `curl -sL -u ${auth} https://fieldbook.com${attachmentUrl}`
+  console.log(curlCmd)
+  try {
+
+    const imageContents = await (exec(curlCmd))
+    console.log(Object.keys(imageContents))
+    res.setHeader(`Content-Type`, `image/png`)
+    res.end(imageContents)
+
+  }catch (e) {
+    console.error(e)
+  }
+})
+
 router.post(`/api/fieldbook-hook`, async (req, res) => {
   console.log(`fieldbook-hook`)
   const hook = req.body
@@ -48,6 +68,7 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
     const rows = await book.getSheet(sheet)
     const json = JSON.stringify(rows, null, `  `)
     const jsonFile = `${fieldbookDir}/${sheet}.json`
+
     // console.log(json)
     fs.writeFileSync(jsonFile, json)
     console.log(`Written ${rows.length} records to ${jsonFile}`)

@@ -56,7 +56,8 @@ html
             div(class='4u 12u(mobile)')
               section.highlight
                 a.image.featured(href='#')
-                  img(src=(event.image || 'images/pic02.jpg'), alt='')
+                  - const imageSrc = event.image && event.image.replace('https://fieldbook.com/', '') || '/images/pic02.jpg'
+                  img(src=(imageSrc), alt='')
                 h3
                   a(href='#')= `${event.name} at ${event.location}`
                 p
@@ -78,8 +79,8 @@ html
           - projects = projects.filter(i => i.visibility === 'published')
           each project, idx in projects
             .grid-flex
-              - defaultImage = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg`
-              .col.col-image(style=`background-image: url(${project.image || defaultImage})`)
+              - const imageSrc = project.image && project.image.replace('https://fieldbook.com/', '') || '/images/pic02.jpg'
+              .col.col-image(style=`background-image: url(${imageSrc})`)
               .col.col-text(class=(idx % 2 == 0 ? '' : 'col-left'))
                 .aligner-item
                   h3= project.name
