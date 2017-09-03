@@ -1,4 +1,5 @@
 const fs = require(`fs`)
+const readFile = require(`util`).promisify(fs.readFile)
 const path = require(`path`)
 const pug = require(`pug`)
 const router = require(`router`)()
@@ -9,16 +10,24 @@ const book = new Fieldbook(config.fieldbook)
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
 
 // Read at initialization time for caching speed
-const infoRows = JSON.parse(fs.readFileSync(`${fieldbookDir}/home_page_info.json`))
-const info = infoRows.reduce((info, row) => { info[row.name] = row.value; return info }, {})
-const events = JSON.parse(fs.readFileSync(`${fieldbookDir}/events.json`))
-const stats = JSON.parse(fs.readFileSync(`${fieldbookDir}/home_page_stats.json`))
-const projects = JSON.parse(fs.readFileSync(`${fieldbookDir}/projects.json`))
-const testimonials = []
+let indexHtml = ``
 
-// Pre-compile template into memory
-const indexTemplate = pug.compile(fs.readFileSync(`${__dirname}/index.pug`))
-const indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
+async function compileIndexHtml() {
+  const infoRows = JSON.parse(await readFile(`${fieldbookDir}/home_page_info.json`))
+  const info = infoRows.reduce((info, row) => { info[row.name] = row.value; return info }, {})
+  const events = JSON.parse(await readFile(`${fieldbookDir}/events.json`))
+  const stats = JSON.parse(await readFile(`${fieldbookDir}/home_page_stats.json`))
+  const projects = JSON.parse(await readFile(`${fieldbookDir}/projects.json`))
+  const testimonials = []
+
+  // Pre-compile template into memory
+  const indexTemplate = pug.compile(await readFile(`${__dirname}/index.pug`))
+  indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
+  console.log(`Compiled indexHtml ${indexHtml.length} bytes`)
+}
+
+// Initial cached compile
+compileIndexHtml()
 
 // Router
 router.get(`/`, (req, res) => {
@@ -42,6 +51,7 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
     console.log(json)
     fs.writeFileSync(jsonFile, json)
     console.log(`Written ${rows.length} records to ${jsonFile}`)
+    compileIndexHtml()
   }
 
   res.end(``)
