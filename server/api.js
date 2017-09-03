@@ -48,7 +48,7 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
     const rows = await book.getSheet(sheet)
     const json = JSON.stringify(rows, null, `  `)
     const jsonFile = `${fieldbookDir}/${sheet}.json`
-    console.log(json)
+    // console.log(json)
     fs.writeFileSync(jsonFile, json)
     console.log(`Written ${rows.length} records to ${jsonFile}`)
     compileIndexHtml()
