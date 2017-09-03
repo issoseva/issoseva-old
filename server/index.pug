@@ -51,7 +51,7 @@ html
       .title Upcoming events
       #highlights.container
         .row(class='150%')
-          = events = events.filter(i => i.visibility === 'published')
+          - events = events.filter(i => i.visibility === 'published')
           each event in events
             div(class='4u 12u(mobile)')
               section.highlight
@@ -75,7 +75,7 @@ html
           p= info.top_programs_blurb
         br
         section
-          = projects = projects.filter(i => i.visibility === 'published')
+          - projects = projects.filter(i => i.visibility === 'published')
           each project, idx in projects
             .grid-flex
               .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg);')
