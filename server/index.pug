@@ -78,7 +78,8 @@ html
           - projects = projects.filter(i => i.visibility === 'published')
           each project, idx in projects
             .grid-flex
-              .col.col-image(style='background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg);')
+              - defaultImage = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/280406/seattle-botanical-gardens.jpg`
+              .col.col-image(style=`background-image: url(${project.image || defaultImage})`)
               .col.col-text(class=(idx % 2 == 0 ? '' : 'col-left'))
                 .aligner-item
                   h3= project.name
