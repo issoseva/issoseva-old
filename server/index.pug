@@ -56,8 +56,7 @@ html
             div(class='4u 12u(mobile)')
               section.highlight
                 a.image.featured(href='#')
-                  - const imageSrc = event.image && event.image.replace('https://fieldbook.com/', '') || '/images/pic02.jpg'
-                  img(src=(imageSrc), alt='')
+                  img(src=(event.image || '/images/pic02.jpg'), alt='')
                 h3
                   a(href='#')= `${event.name} at ${event.location}`
                 p
@@ -79,8 +78,7 @@ html
           - projects = projects.filter(i => i.visibility === 'published')
           each project, idx in projects
             .grid-flex
-              - const imageSrc = project.image && project.image.replace('https://fieldbook.com/', '') || '/images/pic02.jpg'
-              .col.col-image(style=`background-image: url(${imageSrc})`)
+              .col.col-image(style=`background-image: url(${project.image || '/images/pic02.jpg'})`)
               .col.col-text(class=(idx % 2 == 0 ? '' : 'col-left'))
                 .aligner-item
                   h3= project.name
