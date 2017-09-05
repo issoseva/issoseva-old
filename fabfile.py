@@ -5,7 +5,6 @@ def deploy(branch='master'):
 
     with settings(user='root', host_string='new.issoseva.org'):
         with cd('/root/issoseva.org'):
-            run('mkdir -p fieldbook/attachments')
             run('mkdir -p logs')
             run("pm2 delete app.json")
             run("git fetch origin %s" % branch)
