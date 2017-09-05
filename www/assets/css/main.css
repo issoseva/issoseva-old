@@ -1489,7 +1489,7 @@
 		color: #e97770 !important;
 	}
 
-		.feature-list h3:before {
+		.feature-list h3:before, .feature-list .image {
 			position: relative;
 			display: inline-block;
 			color: #fff;
@@ -1886,7 +1886,7 @@
 				margin-top: -0.35em;
 			}
 
-				.feature-list h3:before {
+				.feature-list h3:before, .feature-list .image {
 					width: 64px;
 					height: 64px;
 					line-height: 64px;
@@ -2381,7 +2381,7 @@
 				line-height: 1.25em;
 			}
 
-				.feature-list h3:before {
+				.feature-list h3:before, .feature-list .image {
 					position: absolute;
 					left: 0;
 					top: 0;

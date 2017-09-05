@@ -43,7 +43,9 @@ html
                 each stat in row
                   div(class='6u 12u(mobile)')
                     section
-                      h3.icon.fa-refresh= stat.name
+                      h3.icon
+                        img.image(src=`${stat.image || 'images/pic10.jpg'}`)
+                        = stat.name
           ul.actions.actions-centered
             li
               a.button.style1.big(href=info.donate_url, target='_blank') Donate

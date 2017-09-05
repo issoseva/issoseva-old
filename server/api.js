@@ -26,7 +26,7 @@ async function compileIndexHtml() {
   const projects = JSON.parse(await readFile(`${fieldbookDir}/projects.json`))
   const testimonials = []
 
-  syncFieldbookImages(stats, [`icon`])
+  syncFieldbookImages(stats, [`image`])
   syncFieldbookImages(events, [`image`])
   syncFieldbookImages(projects, [`image`] )
 
@@ -45,7 +45,7 @@ async function syncFieldbookImages(rows, imageFields) {
       if (imageUrl && imageUrl.startsWith(fieldbookAttachmentsUrl)) {
         const imagePath = imageUrl.replace(fieldbookAttachmentsUrl, ``).replace(/\//g, `_`) // No slashes
         const attachmentPath = `${attachmentsDir}/${imagePath}`
-        row[imageField] = `attachments/${imagePath}`
+        row[imageField] = `/attachments/${imagePath}`
 
         if (!fs.existsSync(attachmentPath)) {
           downloadFieldbookAttachment(imageUrl, attachmentPath)
