@@ -14,7 +14,7 @@ html
             div
               h1
                 a(href=`index.html`) ISSO Seva
-              h2 Be Human, Serve Humanity
+              h2= info.mission_tagline
           nav#nav
             ul
               li.current
@@ -34,7 +34,7 @@ html
       #main.container
         section#features
           header.style1
-            h2 Over the last past decade we have served:
+            h2= info.mission_stats_blurb
           .feature-list
             - const numStats = stats.length
             - const rows = [stats.splice(0, numStats), stats.splice(numStats)]
