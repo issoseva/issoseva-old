@@ -2,31 +2,31 @@ doctype html
 html
   head
     title ISSO Seva
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='assets/css/main.css')
+    meta(charset=`utf-8`)
+    meta(name=`viewport`, content=`width=device-width, initial-scale=1`)
+    link(rel=`stylesheet`, href=`assets/css/main.css`)
   body.homepage
     #page-wrapper
       #header-wrapper.wrapper
         #header
           #logo
-            img(src='images/seva_logo.png')
+            img(src=`images/seva_logo.png`)
             div
               h1
-                a(href='index.html') ISSO Seva
+                a(href=`index.html`) ISSO Seva
               h2 Be Human, Serve Humanity
           nav#nav
             ul
               li.current
-                a(href='/') Home
+                a(href=`/`) Home
               li
-                a(href='#projects') Projects
+                a(href=`#projects`) Projects
               li
-                a(href='#contact-us') Contact Us
+                a(href=`#contact-us`) Contact Us
               li
-                a(href='https://blog.issoseva.org' target='_blank') Blog
+                a(href=`http://blog.issoseva.org` target=`_blank`) Blog
               li
-                a(href=info.donate_url, target='_blank') Donate
+                a(href=info.donate_url, target=`_blank`) Donate
     #intro-wrapper.wrapper.style1
       section#intro.container
         h2.style1= info.mission
@@ -41,34 +41,34 @@ html
             each row in rows
               .row
                 each stat in row
-                  div(class='6u 12u(mobile)')
+                  div(class=`6u 12u(mobile)`)
                     section
                       h3.icon
-                        img.image(src=`${stat.image || 'images/pic10.jpg'}`)
+                        img.image(src=`${stat.image || `images/pic10.jpg`}`)
                         = stat.name
           ul.actions.actions-centered
             li
-              a.button.style1.big(href=info.donate_url, target='_blank') Donate
+              a.button.style1.big(href=info.donate_url, target=`_blank`) Donate
     .wrapper.style3
       .title Upcoming events
       #highlights.container
-        .row(class='150%')
-          - events = events.filter(i => i.visibility === 'published')
+        .row(class=`150%`)
+          - events = events.filter(i => i.visibility === `published`)
           each event in events
-            div(class='4u 12u(mobile)')
+            div(class=`4u 12u(mobile)`)
               section.highlight
-                a.image.featured(href='#')
-                  img(src=(event.image || '/images/pic02.jpg'), alt='')
+                a.image.featured(href=`#`)
+                  img(src=(event.image || `/images/pic02.jpg`), alt=``)
                 h3
-                  a(href='#')= `${event.name} at ${event.location}`
+                  a(href=`#`)= `${event.name} at ${event.location}`
                 p
                   = `Date: ${event.date}`
                   br
-                  = event.blurb || '<no blurb>'
+                  = event.blurb || ``
                 //
                   ul.actions
                     li
-                      a.button.style1(href='#') Learn more
+                      a.button.style1(href=`#`) Learn more
 
     #footer-wrapper.wrapper
       #projects.title Projects
@@ -77,29 +77,29 @@ html
           p= info.top_programs_blurb
         br
         section
-          - projects = projects.filter(i => i.visibility === 'published')
+          - projects = projects.filter(i => i.visibility === `published`)
           each project, idx in projects
             .grid-flex
-              .col.col-image(style=`background-image: url(${project.image || '/images/pic02.jpg'})`)
-              .col.col-text(class=(idx % 2 == 0 ? '' : 'col-left'))
+              .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
+              .col.col-text(class=(idx % 2 == 0 ? `` : `col-left`))
                 .aligner-item
                   h3= project.name
                   br
                   p= project.blurb
-                  p= project.author || ''
+                  p= project.author || ``
 
     //
       .wrapper.style3
         .title Testimonials
         #highlights.container
-          .row(class='150%')
+          .row(class=`150%`)
             each testimonial in testimonials
-              div(class='4u 12u(mobile)')
+              div(class=`4u 12u(mobile)`)
                 section.highlight
-                  a.image.featured(href='#')
-                    img(src=(testimonial.image || 'images/pic02.jpg'), alt='')
+                  a.image.featured(href=`#`)
+                    img(src=(testimonial.image || `images/pic02.jpg`), alt=``)
                   h3
-                    a(href='#')= testimonial.person
+                    a(href=`#`)= testimonial.person
                   p= testimonial.blurb
     .wrapper.style2
       #main.container
@@ -111,10 +111,10 @@ html
               script.
                 function initMap() {
                   const coords = {#{gps_coords}}
-                  const map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: coords})
+                  const map = new google.maps.Map(document.getElementById(`map`), {zoom: 4, center: coords})
                   const marker = new google.maps.Marker({position: coords, map: map })
                 }
-              script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB2-KnJv_UsnYEF_I2uhjmF5wbQR57bdOE&callback=initMap')
+              script(async=``, defer=``, src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyB2-KnJv_UsnYEF_I2uhjmF5wbQR57bdOE&callback=initMap`)
     #footer-wrapper.wrapper
       #contact-us.title Contact Us
       #footer.container
@@ -124,53 +124,53 @@ html
             p
               | Sed turpis tortor, tincidunt sed ornare in metus porttitor mollis nunc in aliquet.
               br
-              | 								Nam pharetra laoreet imperdiet volutpat etiam consequat feugiat.
+              | Nam pharetra laoreet imperdiet volutpat etiam consequat feugiat.
           hr
-        .row(class='150%')
-          div(class='6u 12u(mobile)')
+        .row(class=`150%`)
+          div(class=`6u 12u(mobile)`)
             section
-              form(method='post', action='/email')
-                .row(class='50%')
-                  div(class='6u 12u(mobile)')
-                    input#contact-name(type='text', name='name', placeholder='Name')
-                  div(class='6u 12u(mobile)')
-                    input#contact-email(type='text', name='email', placeholder='Email')
-                .row(class='50%')
-                  div(class='12u')
-                    textarea#contact-message(name='message', placeholder='Message', rows='4')
+              form(method=`post`, action=`/email`)
+                .row(class=`50%`)
+                  div(class=`6u 12u(mobile)`)
+                    input#contact-name(type=`text`, name=`name`, placeholder=`Name`)
+                  div(class=`6u 12u(mobile)`)
+                    input#contact-email(type=`text`, name=`email`, placeholder=`Email`)
+                .row(class=`50%`)
+                  div(class=`12u`)
+                    textarea#contact-message(name=`message`, placeholder=`Message`, rows=`4`)
                 .row
-                  div(class='12u')
+                  div(class=`12u`)
                     ul.actions
                       li
-                        input.style1(type='submit', value='Send')
+                        input.style1(type=`submit`, value=`Send`)
                       li
-                        input.style2(type='reset', value='Reset')
-          div(class='6u 12u(mobile)')
+                        input.style2(type=`reset`, value=`Reset`)
+          div(class=`6u 12u(mobile)`)
             section.feature-list.small
               .row
-                div(class='6u 12u(mobile)')
+                div(class=`6u 12u(mobile)`)
                   section
                     h3.icon.fa-home Mailing Address
-                    - const addressLines = info.address.split('\n')
+                    - const addressLines = info.address.split(`\n`)
                     p
                       each line in addressLines
                         = line
                         br
-                div(class='6u 12u(mobile)')
+                div(class=`6u 12u(mobile)`)
                   section
                     h3.icon.fa-comment Social
-                    - const socialLinks = info.social_links.split('\n')
+                    - const socialLinks = info.social_links.split(`\n`)
                     p
                       each link in socialLinks
-                        a(href=link, target='_blank')= link.replace(/^https?:\/\//,'')
+                        a(href=link, target=`_blank`)= link.replace(/^https?:\/\//,``)
                         br
               .row
-                div(class='6u 12u(mobile)')
+                div(class=`6u 12u(mobile)`)
                   section
                     h3.icon.fa-envelope Email
                     p
-                      a(href='#')= info.email
-                div(class='6u 12u(mobile)')
+                      a(href=`mailto:${info.email}`)= info.email
+                div(class=`6u 12u(mobile)`)
                   section
                     h3.icon.fa-phone Phone
                     p= info.phone
@@ -178,9 +178,9 @@ html
       #copyright
         ul
           li © ISSO Seva
-    script(src='assets/js/jquery.min.js')
-    script(src='assets/js/jquery.dropotron.min.js')
-    script(src='assets/js/skel.min.js')
-    script(src='assets/js/skel-viewport.min.js')
-    script(src='assets/js/util.js')
-    script(src='assets/js/main.js')
+    script(src=`assets/js/jquery.min.js`)
+    script(src=`assets/js/jquery.dropotron.min.js`)
+    script(src=`assets/js/skel.min.js`)
+    script(src=`assets/js/skel-viewport.min.js`)
+    script(src=`assets/js/util.js`)
+    script(src=`assets/js/main.js`)
