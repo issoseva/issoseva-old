@@ -1,4 +1,7 @@
 from fabric.api import settings, cd, run, local
+from fabric.network import ssh
+
+ssh.util.log_to_file("paramiko.log", 10)
 
 def deploy(branch='master'):
     with settings(user='root', host_string='issoseva.org'):
