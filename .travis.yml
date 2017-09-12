@@ -13,7 +13,10 @@ script:
   - node -v
   - npm -v
 deploy:
+  skip_cleanup: true
   provider: script
-  script: fab deploy
+  script:
+    - fab -l
+    - fab deploy
   on:
     branch: master
