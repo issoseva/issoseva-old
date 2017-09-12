@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+language: python
+node_js:
+  - "8.2"
+python:
+  - "3.4"
+before_install:
+  - sudo apt-get -y install python3-pip
+  - python3 -V
+  - pip3 -V
+install:
+  - sudo pip3 install fab
+deploy:
+  provider: script
+  script: fab deploy
+  on:
+    branch: master
