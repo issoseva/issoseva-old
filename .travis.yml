@@ -1,6 +1,6 @@
 sudo: required
 dist: trusty
-language: nodejs
+language: node_js
 node_js:
   - "8.2"
 python:
@@ -13,6 +13,6 @@ script:
   - node -v
   - npm -v
 after_success:
-  - fab -l
-  - fab deploy
+  - echo $DEPLOY_KEY > deploy.key
+  - fab deploy -i deploy.key
 
