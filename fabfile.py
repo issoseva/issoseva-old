@@ -1,7 +1,8 @@
-from fabric.api import settings, cd, run, local
+from fabric.api import settings, cd, run, local, env
 from fabric.network import ssh
 
 ssh.util.log_to_file("paramiko.log", 10)
+env.use_ssh_config = True
 
 def deploy(branch='master'):
     with settings(user='root', host_string='issoseva.org'):
