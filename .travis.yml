@@ -15,5 +15,6 @@ script:
 after_success:
   - echo -e $DEPLOY_KEY > ~/.ssh/id_rsa
   - cat ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
   - ssh -o StrictHostKeyChecking=no root@issoseva.org 'ls /root/issoseva.org'
 
