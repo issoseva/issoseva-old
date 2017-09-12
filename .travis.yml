@@ -15,5 +15,5 @@ script:
 after_success:
   - echo -e $DEPLOY_KEY > ~/.ssh/id_rsa
   - cat ~/.ssh/id_rsa
-  - fab deploy
+  - ssh root@issoseva.org 'ls /root/issoseva.org'
 
