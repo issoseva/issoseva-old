@@ -13,7 +13,6 @@ script:
   - node -v
   - npm -v
 after_success:
-  - echo $DEPLOY_KEY > deploy.key
-  - cat deploy.key
+  - printf $DEPLOY_KEY > deploy.key
   - fab deploy -i deploy.key
 
