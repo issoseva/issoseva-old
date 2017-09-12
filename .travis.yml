@@ -12,11 +12,7 @@ script:
   - python -V
   - node -v
   - npm -v
-deploy:
-  skip_cleanup: true
-  provider: script
-  script:
-    - fab -l
-    - fab deploy
-  on:
-    branch: master
+after_success:
+  - fab -l
+  - fab deploy
+
