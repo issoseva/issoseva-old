@@ -5,8 +5,13 @@ html
     meta(charset=`utf-8`)
     meta(name=`viewport`, content=`width=device-width, initial-scale=1`)
     link(rel=`stylesheet`, href=`assets/css/main.css`)
-    script(defer=true, async=true, src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyB2N-Gf52nEwzswEZlDXgY-BbbMix3QQrg&callback=initMap`)
-    script(defer=true, async=true, src=`https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js`)
+    script(defer=true, src=`assets/js/jquery.min.js`)
+    script(defer=true, src=`assets/js/jquery.dropotron.min.js`)
+    script(defer=true, src=`assets/js/skel.min.js`)
+    script(defer=true, src=`assets/js/skel-viewport.min.js`)
+    script(defer=true, src=`assets/js/util.js`)
+    script(defer=true, src=`assets/js/main.js`)
+    script(defer=true, src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyB2N-Gf52nEwzswEZlDXgY-BbbMix3QQrg&callback=initMap`)
   body.homepage
     #page-wrapper
       #header-wrapper.wrapper
@@ -186,9 +191,3 @@ html
       #copyright
         ul
           li © ISSO Seva
-    script(src=`assets/js/jquery.min.js`)
-    script(src=`assets/js/jquery.dropotron.min.js`)
-    script(src=`assets/js/skel.min.js`)
-    script(src=`assets/js/skel-viewport.min.js`)
-    script(src=`assets/js/util.js`)
-    script(src=`assets/js/main.js`)
