@@ -1,5 +1,4 @@
 from fabric.api import settings, cd, run, local, env
-from fabric.network import ssh
 
 env.use_ssh_config = True
 

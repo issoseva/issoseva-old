@@ -6,8 +6,8 @@ node_js:
 python:
   - "3.4"
 before_install:
-  - pip install paramiko
-  - pip install fabric
+  - sudo pip install paramiko
+  - sudo pip install fabric
 script:
   - pip -V
   - python -V
