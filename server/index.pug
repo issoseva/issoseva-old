@@ -52,8 +52,8 @@ html
     - events = events.filter(i => i.visibility === `published`)
     if events.length
       .wrapper.style3
-        .title Upcoming events
-        #highlights.container
+        #events.title Upcoming events
+        .container
           .row(class=`150%`)
             each event in events
               div(class=`4u 12u(mobile)`)
@@ -75,7 +75,7 @@ html
     if projects.length
       #footer-wrapper.wrapper
         #projects.title Projects
-        #footer.container
+        .container
           header.style1
             p= info.top_programs_blurb
           br
@@ -93,8 +93,8 @@ html
     - testimonials = testimonials.filter(i => i.visibility === `published`)
     if testimonials.length
       .wrapper.style3
-        .title Testimonials
-        #highlights.container
+        #testimonials.title Testimonials
+        .container
           .row(class=`150%`)
             each testimonial in testimonials
               div(class=`4u 12u(mobile)`)
@@ -104,23 +104,27 @@ html
                   h3
                     a(href=`#`)= testimonial.author
                   p= testimonial.blurb
+
     .wrapper.style2
-      #main.container
-        section#features
-          header.style1
-            h2 Our Location
-            //
-              #map
-              script.
-                function initMap() {
-                  const coords = {#{gps_coords}}
-                  const map = new google.maps.Map(document.getElementById(`map`), {zoom: 4, center: coords})
-                  const marker = new google.maps.Marker({position: coords, map: map })
-                }
-              script(async=``, defer=``, src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyB2-KnJv_UsnYEF_I2uhjmF5wbQR57bdOE&callback=initMap`)
+      .title Location
+      #location.container
+        header.style1
+        #map
+        script.
+          function initMap() {
+            const position = {#{info.location_latlng}}
+            const map = new google.maps.Map(document.getElementById(`map`), {zoom: 15, center: position})
+            const marker = new google.maps.Marker({position, map })
+            google.maps.event.addListener(marker, 'click', () => {
+              const infoWindow = new google.maps.InfoWindow();
+              infoWindow.setContent(`#{info.address}`.replace(/\n/g, '<br/>'));
+              infoWindow.open(map, marker);
+            });
+          }
+        script(async=``, defer=``, src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyB2N-Gf52nEwzswEZlDXgY-BbbMix3QQrg&callback=initMap`)
     #footer-wrapper.wrapper
       #contact-us.title Contact Us
-      #footer.container
+      .container
         //
           header.style1
             h2 Ipsum sapien elementum portitor?
