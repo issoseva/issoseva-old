@@ -49,46 +49,49 @@ html
           ul.actions.actions-centered
             li
               a.button.style1.big(href=info.donate_url, target=`_blank`) Donate
-    .wrapper.style3
-      .title Upcoming events
-      #highlights.container
-        .row(class=`150%`)
-          - events = events.filter(i => i.visibility === `published`)
-          each event in events
-            div(class=`4u 12u(mobile)`)
-              section.highlight
-                a.image.featured(href=`#`)
-                  img(src=(event.image || `/images/pic02.jpg`), alt=``)
-                h3
-                  a(href=`#`)= `${event.name} at ${event.location}`
-                p
-                  = `Date: ${event.date}`
-                  br
-                  = event.blurb || ``
-                //
-                  ul.actions
-                    li
-                      a.button.style1(href=`#`) Learn more
+    - events = events.filter(i => i.visibility === `published`)
+    if events.length
+      .wrapper.style3
+        .title Upcoming events
+        #highlights.container
+          .row(class=`150%`)
+            each event in events
+              div(class=`4u 12u(mobile)`)
+                section.highlight
+                  a.image.featured(href=`#`)
+                    img(src=(event.image || `/images/pic02.jpg`), alt=``)
+                  h3
+                    a(href=`#`)= `${event.name} at ${event.location}`
+                  p
+                    = `Date: ${event.date}`
+                    br
+                    = event.blurb || ``
+                  //
+                    ul.actions
+                      li
+                        a.button.style1(href=`#`) Learn more
 
-    #footer-wrapper.wrapper
-      #projects.title Projects
-      #footer.container
-        header.style1
-          p= info.top_programs_blurb
-        br
-        section
-          - projects = projects.filter(i => i.visibility === `published`)
-          each project, idx in projects
-            .grid-flex
-              .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
-              .col.col-text(class=(idx % 2 == 0 ? `` : `col-left`))
-                .aligner-item
-                  h3= project.name
-                  br
-                  p= project.blurb
-                  p= project.author || ``
+    - projects = projects.filter(i => i.visibility === `published`)
+    if projects.length
+      #footer-wrapper.wrapper
+        #projects.title Projects
+        #footer.container
+          header.style1
+            p= info.top_programs_blurb
+          br
+          section
+            each project, idx in projects
+              .grid-flex
+                .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
+                .col.col-text(class=(idx % 2 == 0 ? `` : `col-left`))
+                  .aligner-item
+                    h3= project.name
+                    br
+                    p= project.blurb
+                    p= project.author || ``
 
-    //
+    - testimonials = testimonials.filter(i => i.visibility === `published`)
+    if testimonials.length
       .wrapper.style3
         .title Testimonials
         #highlights.container
@@ -99,7 +102,7 @@ html
                   a.image.featured(href=`#`)
                     img(src=(testimonial.image || `images/pic02.jpg`), alt=``)
                   h3
-                    a(href=`#`)= testimonial.person
+                    a(href=`#`)= testimonial.author
                   p= testimonial.blurb
     .wrapper.style2
       #main.container

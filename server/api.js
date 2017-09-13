@@ -24,7 +24,7 @@ async function compileIndexHtml() {
   const events = JSON.parse(await readFile(`${fieldbookDir}/events.json`))
   const stats = JSON.parse(await readFile(`${fieldbookDir}/home_page_stats.json`))
   const projects = JSON.parse(await readFile(`${fieldbookDir}/projects.json`))
-  const testimonials = []
+  const testimonials = JSON.parse(await readFile(`${fieldbookDir}/testimonials.json`))
 
   syncFieldbookImages(stats, [`image`])
   syncFieldbookImages(events, [`image`])
