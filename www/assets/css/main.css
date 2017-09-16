@@ -1740,7 +1740,7 @@
       color: #e97770;
     }
 
-/* Copyright */
+/* */
 
   #copyright {
     text-align: center;
@@ -2173,10 +2173,10 @@
         margin: 6em 0 6em 0;
       }
 
-    /* Copyright */
+    /* */
 
       #copyright {
-        margin: 6em 0 0 0;
+/*         margin: 6em 0 0 0; */
       }
 
         #copyright ul {
