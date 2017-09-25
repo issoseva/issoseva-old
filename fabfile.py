@@ -10,3 +10,4 @@ def deploy(branch='master'):
             run('git reset --hard origin/%s' % branch)
             run('yarn install')
             run('pm2 restart app.json')
+            run('curl -s http://issoseva.org | grep "ISSO SEVA"')
