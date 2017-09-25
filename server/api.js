@@ -8,12 +8,15 @@ const path = require(`path`)
 const pug = require(`pug`)
 const router = require(`router`)()
 const Fieldbook = require(`node-fieldbook`)
+const nodemailer = require('nodemailer')
 const config = require(`../config`)
 const bookConfig = config.fieldbook
 const book = new Fieldbook(bookConfig)
 const fieldbookAttachmentsUrl = `https://fieldbook.com/attachments/${bookConfig.book}/`
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`)
 const attachmentsDir = path.normalize(`${__dirname}/../www/attachments`)
+
+let transporter = nodemailer.createTransport(config.smtp)
 
 // Read at initialization time for caching speed
 let indexHtml = ``
@@ -106,5 +109,49 @@ router.post(`/api/fieldbook-hook`, async (req, res) => {
 
   res.end(``)
 })
+
+router.post(`/api/email`, async (req, res) => {
+
+  const formData = req.body
+
+  res.setHeader(`Content-Type`, `application/json`)  
+
+  if (isValidContcatFormData(formData)) {
+    
+    const {name = ``, email, message} = formData
+
+    let mailOptions = {
+      from: `"ISSOSEVA" <mailer@issoseva.org>`,
+      to: `hello@issoseva.org`,
+      subject: `Contact Form New Message`,
+      text: `${name}(${email}) - ${message}`,
+      html: `<div>${name}</div><br/><div>${email}</div><br /><div>${message}</div>`
+    }
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        throw new Error(error)
+        return res.end(`{ "error": "Something Bad happened" }`);
+      }
+
+      res.end(`{
+        "success": true
+      }`)
+      
+    })
+
+  } else {
+    res.end(`{
+      "error": "Invalid Details"
+    }`)
+  }
+
+})
+
+function isValidContcatFormData(formData) {
+  return formData.email &&
+    formData.email.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) &&
+    formData.message;
+}
 
 module.exports = router
