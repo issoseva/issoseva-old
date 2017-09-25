@@ -91,44 +91,6 @@
       $(`#titleBar, #navPanel, #page-wrapper`)
         .css(`transition`, `none`)
 
-    
-    // contact us form sending email
-    var $form = $("#contact-us-form");
-    $form.submit(function onContactFormSubmit(event) {
-      
-      event.preventDefault();
-
-      var $this = $(this);
-      var contactFormData = {
-        name: $this.find("#contact-name").val(),
-        email: $this.find("#contact-email").val(),
-        message: $this.find("#contact-message").val()
-      }
-
-      $("#contact-us-form").find("input, textarea").attr("disabled", "disabled");
-
-      $.ajax({
-        url: "/api/email",
-        type: "POST",
-        data: contactFormData,
-        dataType: "json",
-      }).done(function(data) {
-
-        $("#contact-us-form").find("input, textarea").attr("disabled", false);
-        
-        if (data.success) {
-          alert("Thank you for contacting us. We will get back to you shortly!");
-          $("#contact-us-form").find("input[type=text],textarea").each(function(index, elem) {
-            $(elem).val("");
-          })
-        } else {
-          alert("Something bad happened. Please try again");
-        }
-      })
-
-      return false
-    })
-        
   })
 
 })(jQuery)

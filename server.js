@@ -7,7 +7,6 @@ const app = connect()
 app.use(require(`response-time`)())
 app.use(require(`compression`)())
 app.use(require(`body-parser`).json())
-app.use(require(`body-parser`).urlencoded({ extended: true }))
 app.use(api)
 app.use(require(`serve-static`)(`www`))
 
