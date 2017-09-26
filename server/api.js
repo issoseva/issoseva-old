@@ -119,7 +119,7 @@ router.post(`/api/email`, async (req, res) => {
     const mailOptions = {
       from: `"ISSO Seva Mailer" <mailer@issoseva.org>`,
       to: `hello@issoseva.org`,
-      subject: `Contact Form New Message from ${name} <${email}>`,
+      subject: `Contact us message from ${name} <${email}>`,
       text: message,
       html: `<div>${name}</div><br/><div>${email}</div><br/><br/><div>${message}</div>`
     }

@@ -11,5 +11,5 @@ script:
   - chmod 600 ~/.ssh/id_rsa
   - ssh -o StrictHostKeyChecking=no root@issoseva.org 'echo ssh setup'
   - fab deploy
-  - curl -s http://issoseva.org | grep 'ISSO SEVA'
+  - sleep 2 && curl -s http://issoseva.org | grep 'ISSO SEVA'
 
