@@ -1,11 +1,7 @@
-/*
-	Escape Velocity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* eslint-env browser */
+/* global skel, jQuery */
 
 (function($) {
-
   skel
     .breakpoints({
       desktop: `(min-width: 737px)`,
@@ -91,44 +87,44 @@
       $(`#titleBar, #navPanel, #page-wrapper`)
         .css(`transition`, `none`)
 
-    
-    // contact us form sending email
-    var $form = $("#contact-us-form");
-    $form.submit(function onContactFormSubmit(event) {
-      
-      event.preventDefault();
 
-      var $this = $(this);
+    // contact us form sending email
+    var $form = $(`#contact-us-form`)
+    $form.submit(function onContactFormSubmit(event) {
+
+      event.preventDefault()
+
+      var $this = $(this)
       var contactFormData = {
-        name: $this.find("#contact-name").val(),
-        email: $this.find("#contact-email").val(),
-        message: $this.find("#contact-message").val()
+        name: $this.find(`#contact-name`).val(),
+        email: $this.find(`#contact-email`).val(),
+        message: $this.find(`#contact-message`).val()
       }
 
-      $("#contact-us-form").find("input, textarea").attr("disabled", "disabled");
+      $(`#contact-us-form`).find(`input, textarea`).attr(`disabled`, `disabled`)
 
       $.ajax({
-        url: "/api/email",
-        type: "POST",
+        url: `/api/email`,
+        type: `POST`,
         data: contactFormData,
-        dataType: "json",
+        dataType: `json`,
       }).done(function(data) {
 
-        $("#contact-us-form").find("input, textarea").attr("disabled", false);
-        
+        $(`#contact-us-form`).find(`input, textarea`).attr(`disabled`, false)
+
         if (data.success) {
-          alert("Thank you for contacting us. We will get back to you shortly!");
-          $("#contact-us-form").find("input[type=text],textarea").each(function(index, elem) {
-            $(elem).val("");
+          alert(`Thank you for contacting us. We will get back to you shortly!`)
+          $(`#contact-us-form`).find(`input[type=text],textarea`).each(function(index, elem) {
+            $(elem).val(``)
           })
         } else {
-          alert("Something bad happened. Please try again");
+          alert(data.error)
         }
       })
 
       return false
     })
-        
+
   })
 
 })(jQuery)
