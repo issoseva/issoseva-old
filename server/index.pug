@@ -89,7 +89,10 @@ html
           section
             each project, idx in projects
               .grid-flex
-                .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
+                if project.video
+                  iframe.col.col-video(src=(project.video))
+                else
+                  .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
                 .col.col-text(class=(idx % 2 == 0 ? `` : `col-left`))
                   .aligner-item
                     h3= project.name
