@@ -13,7 +13,7 @@ Issoseva.org website
   - `yarn`
 - Config file
   - Create new file `config.json` => `touch config.json`
-  - Enter followingjson in `config.json` with keys/fields replaced
+  - Enter following json in `config.json` with keys/fields replaced
     ```json
     {
       "port": 9000,
@@ -37,7 +37,8 @@ Issoseva.org website
 - Fieldbook Sync
   - Create new directory fieldbook
     - `mkdir fieldbook`
-  - Run `yarn sync_fieldbook`
+  - To sync the data run (This will sync the data from fieldbook.com)
+    - `yarn sync_fieldbook`
 
 - Running Server
   - `node server.js`
