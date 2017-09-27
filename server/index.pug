@@ -90,7 +90,7 @@ html
             each project, idx in projects
               .grid-flex
                 if project.video
-                  iframe.col.col-video(src=(project.video))
+                  iframe.col.col-video(src=(project.video), allowfullscreen)
                 else
                   .col.col-image(style=`background-image: url(${project.image || `/images/pic02.jpg`})`)
                 .col.col-text(class=(idx % 2 == 0 ? `` : `col-left`))
