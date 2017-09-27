@@ -1,7 +1,8 @@
 # issoseva.org
-Issoseva.org website
 
-### Building Locally
+This is the code behind issoseva.org
+
+### Building & Running Locally
 
 - Install Node
   - `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash`
@@ -23,12 +24,12 @@ Issoseva.org website
         "password": "<FIELDBOOK_PASSWORD>"
       },
       "smtp": {
-        "host": "smtp.zoho.com",
+        "host": "<SMTP_HOST>",
         "port": 465,
         "secure": true,
         "auth": {
-          "user": "<ZOHO_USERNAME>",
-          "pass": "<ZOHO_PASSWORD>"
+          "user": "<SMTP_USERNAME>",
+          "pass": "<SMTP_PASSWORD>"
         }
       }
     }
