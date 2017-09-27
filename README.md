@@ -1,6 +1,6 @@
 # issoseva.org
 
-This is the code behind issoseva.org
+[![Build Status](https://travis-ci.org/issoseva/issoseva.org.svg?branch=master)](https://travis-ci.org/issoseva/issoseva.org)
 
 ### Building & Running Locally
 
