@@ -60,10 +60,10 @@ html
     if events.length
       .wrapper.style3
         #events.title Upcoming events
-        .container
+        .container.events-container
           .row(class=`150%`)
             each event in events
-              div(class=`4u 12u(mobile)`)
+              div(class=`event 4u 12u(mobile)`)
                 section.highlight
                   a.image.featured(href=`#`)
                     img(src=(event.image || `/images/pic02.jpg`), alt=``)
@@ -104,10 +104,10 @@ html
     if testimonials.length
       .wrapper.style3
         #testimonials.title Testimonials
-        .container
+        .container.testimonials-container
           .row(class=`150%`)
             each testimonial in testimonials
-              div(class=`4u 12u(mobile)`)
+              div(class=`testimonial 4u 12u(mobile)`)
                 section.highlight
                   a.image.featured(href=`#`)
                     img(src=(testimonial.image || `images/pic02.jpg`), alt=``)

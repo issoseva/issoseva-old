@@ -23,3 +23,5 @@ node_modules
 # Python
 *.pyc
 
+# SASS
+www/assets/css/main.css
