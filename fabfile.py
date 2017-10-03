@@ -9,4 +9,5 @@ def deploy(branch='master'):
             run('git fetch origin %s' % branch)
             run('git reset --hard origin/%s' % branch)
             run('yarn install')
+            run('yarn build')
             run('pm2 restart app.json')

@@ -5,6 +5,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900');
 @import url('font-awesome.min.css');
 
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
 /*
 	Escape Velocity by HTML5 UP
 	html5up.net | @ajlkn
@@ -55,7 +62,7 @@
 
 	body {
 		&.is-loading * {
-			@include vendor('transition', 'none !important');
+			@include transition(none !important);
 			@include vendor('animation', 'none !important');
 		}
 	}
@@ -71,7 +78,7 @@
 	}
 
 	a {
-		@include vendor('transition', 'color .25s ease-in-out');
+		@include transition(color .25s ease-in-out);
 		text-decoration: underline;
 		color: #717479;
 
@@ -173,7 +180,7 @@
 		input[type="password"],
 		select,
 		textarea {
-			@include vendor('transition', 'all .25s ease-in-out');
+			@include transition(all .25s ease-in-out);
 			-webkit-appearance: none;
 			display: block;
 			border: 0;
@@ -305,7 +312,7 @@
 	input[type="reset"],
 	button,
 	.button {
-		@include vendor('transition', 'all .25s ease-in-out');
+		@include transition(all .25s ease-in-out);
 		display: inline-block;
 		background: #444;
 		text-align: center;
@@ -421,11 +428,11 @@
 		h3 {
 			color: #e97770 !important;
 
-			&:before {
+			&:before, .image {
 				position: relative;
 				display: inline-block;
 				color: #fff;
-				background: #2f333b url('images/overlay.png');
+				background: white url('images/overlay.png');
 				border-radius: 1em;
 				text-align: center;
 			}
@@ -480,7 +487,7 @@
 			}
 
 			&:after {
-				@include vendor('transform', 'scaleX(-1)');
+				@include vendor(transform, scaleX(-1));
 				content: '';
 				position: absolute;
 				bottom: -38px;
@@ -492,16 +499,14 @@
 		}
 
 		&.style1 {
-			background: #e97770 url('images/overlay.png');
-			color: #eee;
-			color: rgba(255, 255, 255, 0.75);
+			color: black;
 
 			.title {
 				background: #e97770 url('images/overlay.png');
 				color: #fff;
 			}
 
-			h1, h2, h3, h4, h5, h6, strong, b, a {
+			h1, h3, h4, h5, h6, strong, b, a {
 				color: #fff;
 			}
 		}
@@ -530,7 +535,6 @@
 	}
 
 	#header-wrapper {
-		background: url('../../images/banner.jpg') center center;
 		background-size: cover;
 
 		&:before {
@@ -605,7 +609,8 @@
 		header {
 			&.style1 {
 				h2 {
-					color: #fff;
+					color: inherit;
+					font-weight: normal;
 				}
 
 				.p {
@@ -634,12 +639,12 @@
 		h1 {
 			font-weight: 900;
 			text-transform: uppercase;
-			color: #fff;
+			color: #2D3341;
 		}
 
 		p {
 			color: #eee;
-			color: rgba(255, 255, 255, 0.5);
+			color: #2D3341;
 			text-transform: uppercase;
 		}
 	}
@@ -736,6 +741,17 @@
 						font-size: 1.3em;
 						letter-spacing: 0.075em;
 						line-height: 1.5em;
+						font-weight: normal;
+					}
+				}
+				.style1 {
+					h2 {
+						display: block;
+						margin: 1.15em 0 0 0;
+						font-size: 1.3em;
+						letter-spacing: 0.075em;
+						line-height: 1.5em;
+						font-weight: normal;
 					}
 				}
 			}
@@ -819,13 +835,13 @@
 					letter-spacing: 0.05em;
 					margin-top: -0.35em;
 
-					&:before {
+					&:before, .image {
 						width: 64px;
 						height: 64px;
 						line-height: 64px;
 						margin-right: 0.75em;
 						font-size: 32px;
-						top: 0.2em;
+						top: 0.8em;
 					}
 				}
 
@@ -890,7 +906,7 @@
 		/* Wrappers */
 
 			.wrapper {
-				padding: 6em 0 9em 0;
+				padding: 2em 0 9em 0;
 
 				.title {
 					font-size: 0.9em;
@@ -909,7 +925,7 @@
 			}
 
 			#intro-wrapper {
-				padding-bottom: 8em;
+				padding-bottom: 1em;
 			}
 
 		/* Header */
@@ -920,7 +936,7 @@
 			}
 
 			.homepage #header {
-				padding: 18em 0;
+				padding: 14em 0;
 			}
 
 		/* Logo */
@@ -936,7 +952,7 @@
 			}
 
 			.homepage #logo {
-				margin-top: -1em;
+				margin-top: -5em;
 			}
 
 			#logo {
@@ -966,7 +982,7 @@
 				> ul {
 					display: inline-block;
 					border-radius: 0.35em;
-					box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25);
+					box-shadow: inset 0px 0px 1px 1px #2D3341;
 					padding: 0 1.5em 0 1.5em;
 
 					> li {
@@ -981,7 +997,7 @@
 						> a, > span {
 							display: block;
 							color: #eee;
-							color: rgba(255, 255, 255, 0.75);
+							color: #2D3341;
 							text-transform: uppercase;
 							text-decoration: none;
 							font-size: 0.7em;
@@ -998,7 +1014,7 @@
 
 						&:hover {
 							> a {
-								color: #fff;
+								color: #E52E26;
 							}
 						}
 
@@ -1030,7 +1046,7 @@
 				}
 
 				a, span {
-					@include vendor('transition', 'all .25s ease-in-out');
+					@include transition(all .25s ease-in-out);
 					display: block;
 					color: #eee;
 					color: rgba(255, 255, 255, 0.75);
@@ -1138,7 +1154,7 @@
 		/* Copyright */
 
 			#copyright {
-				margin: 6em 0 0 0;
+				// margin: 6em 0 0 0;
 
 				ul {
 					padding: 0.75em 2em;
@@ -1158,6 +1174,11 @@
 						}
 					}
 				}
+			}
+
+			.events-container .event:nth-of-type(3n + 4),
+			.testimonials-container .testimonial:nth-of-type(3n + 4) {
+				clear: left;
 			}
 
 	}
@@ -1305,6 +1326,7 @@
 			input[type="button"],
 			input[type="submit"],
 			input[type="reset"],
+			textarea,
 			button,
 			.button {
 				display: block;
@@ -1348,7 +1370,7 @@
 					padding: 4px 0 0 48px;
 					line-height: 1.25em;
 
-					&:before {
+					&:before, .image {
 						position: absolute;
 						left: 0;
 						top: 0;
@@ -1387,13 +1409,13 @@
 
 			#page-wrapper {
 				@include vendor('backface-visibility', 'hidden');
-				@include vendor('transition', 'transform #{_duration(navPanel)} ease');
+				@include transition(transform #{_duration(navPanel)} ease);
 				padding-bottom: 1px;
 			}
 
 			#titleBar {
 				@include vendor('backface-visibility', 'hidden');
-				@include vendor('transition', 'transform #{_duration(navPanel)} ease');
+				@include transition(transform #{_duration(navPanel)} ease);
 				display: block;
 				height: 44px;
 				left: 0;
@@ -1415,7 +1437,7 @@
 					height: 44px;
 
 					&:before {
-						@include vendor('transition', 'all .15s ease-in-out');
+						@include transition(all .15s ease-in-out);
 						font-family: FontAwesome;
 						text-decoration: none;
 						font-style: normal;
@@ -1447,7 +1469,7 @@
 			#navPanel {
 				@include vendor('backface-visibility', 'hidden');
 				@include vendor('transform', 'translateX(#{_size(navPanel) * -1})');
-				@include vendor('transition', ('transform #{_duration(navPanel)} ease'));
+				@include transition(transform #{_duration(navPanel)} ease);
 				display: block;
 				height: 100%;
 				left: 0;
@@ -1526,7 +1548,7 @@
 		/* Wrappers */
 
 			.wrapper {
-				padding: 15px 15px 5em 15px;
+				padding: 15px 15px 4em 15px;
 
 				.title {
 					font-size: 0.9em;
@@ -1647,3 +1669,86 @@
 			}
 
 	}
+
+
+.grid-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+}
+.col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.col-left {
+  -webkit-box-ordinal-group:-1;
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+.col-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20em;
+}
+.aligner-item {
+  width: 60%;
+}
+.col-image {
+  background-size: cover;
+  background-position:center center;
+}
+
+@media (max-width: 640px) {
+  .grid-flex {
+    height: 40em;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+   }
+  .col {
+    order:vertical;
+  }
+  .col-left {
+    -webkit-box-ordinal-group:0;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+  }
+  .col-text div h3 {
+    margin-top: 2em;
+  }
+  .col-text div p {
+    padding-bottom: 1em;
+  }
+  .aligner-item {
+    width: 80%;
+  }
+}
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }
+
+ h2.style1{
+   margin-top: 2em;
+   font-weight: normal;
+ }
+
+
+
+

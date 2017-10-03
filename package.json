@@ -5,6 +5,8 @@
   "description": "ISSO Seva Website",
   "main": "server.js",
   "scripts": {
+    "build": "yarn build-sass",
+    "build-sass": "node-sass www/assets/sass/main.scss www/assets/css/main.css",
     "sync_fieldbook": "node scripts/sync_fieldbook.js"
   },
   "repository": {
@@ -24,6 +26,7 @@
     "eslint": "^4.6.0",
     "mkdirp": "^0.5.1",
     "node-fieldbook": "^1.1.1",
+    "node-sass": "^4.5.3",
     "nodemailer": "^4.1.1",
     "pug": "^2.0.0-rc.3",
     "qs": "^6.5.0",
