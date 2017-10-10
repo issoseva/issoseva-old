@@ -23,7 +23,7 @@ let indexHtml = ``
 async function compileIndexHtml() {
   const infoRows = JSON.parse(await readFile(`${fieldbookDir}/home_page_info.json`))
   const info = infoRows.reduce((info, row) => { info[row.name] = row.value; return info }, {})
-  const events = JSON.parse(await readFile(`${fieldbookDir}/events.json`))
+  const events = filterEvents(JSON.parse(await readFile(`${fieldbookDir}/events.json`)))
   const stats = JSON.parse(await readFile(`${fieldbookDir}/home_page_stats.json`))
   const projects = JSON.parse(await readFile(`${fieldbookDir}/projects.json`))
   const testimonials = JSON.parse(await readFile(`${fieldbookDir}/testimonials.json`))
@@ -79,6 +79,21 @@ async function downloadFieldbookAttachment(fileUrl, diskPath) {
 
 // Initial cached compile
 compileIndexHtml()
+
+function filterEvents(events) {
+  const MAX_EVENTS = 6
+  return events.sort((a, b) => {
+    return (new Date(a.date).getTime()) - (new Date(b.date).getTime())
+  }).filter(event => {
+    if (!event.date) return false
+
+    let eventDateTime = new Date(event.date)
+    eventDateTime.setHours(23)
+    eventDateTime.setMinutes(59)
+
+    return eventDateTime > new Date()
+  }).slice(0, MAX_EVENTS)
+}
 
 // Router
 router.get(`/`, (req, res) => {
