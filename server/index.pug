@@ -72,7 +72,7 @@ html
                   p
                     = `Date: ${event.date}`
                     br
-                    = event.blurb || ``
+                  != mdToHtml(event.blurb || ``)
                   //
                     ul.actions
                       li
@@ -97,7 +97,7 @@ html
                   .aligner-item
                     h3= project.name
                     br
-                    p= project.blurb
+                    != mdToHtml(project.blurb || ``)
                     p= project.author || ``
 
     - testimonials = testimonials.filter(i => i.visibility === `published`)

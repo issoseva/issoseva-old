@@ -10,6 +10,7 @@ const router = require(`router`)()
 const Fieldbook = require(`node-fieldbook`)
 const nodemailer = require(`nodemailer`)
 const config = require(`../config`)
+const markdown = require( `markdown`).markdown
 const bookConfig = config.fieldbook
 const book = new Fieldbook(bookConfig)
 const fieldbookAttachmentsUrl = `https://fieldbook.com/attachments/${bookConfig.book}/`
@@ -34,7 +35,7 @@ async function compileIndexHtml() {
 
   // Pre-compile template into memory
   const indexTemplate = pug.compile(await readFile(`${__dirname}/index.pug`))
-  indexHtml = indexTemplate({ info, events, stats, projects, testimonials })
+  indexHtml = indexTemplate({ info, events, stats, projects, testimonials, mdToHtml })
   console.log(`Compiled indexHtml ${indexHtml.length} bytes`)
 }
 
@@ -157,6 +158,10 @@ function isValidFormData(formData) {
   return formData.email &&
     formData.email.match(/^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/) &&
     formData.message
+}
+
+function mdToHtml(md) {
+  return markdown.toHTML(md)
 }
 
 module.exports = router
