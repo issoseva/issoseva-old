@@ -5,7 +5,7 @@ env.use_ssh_config = True
 
 def deploy(branch='master'):
     # If not in CI mode push the latest dir
-    if os.environ.get('CI', False):
+    if not os.environ.get('CI', False):
         local('git push')
 
     with settings(user='root', host_string='issoseva.org'):
