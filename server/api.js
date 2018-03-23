@@ -161,7 +161,12 @@ function isValidFormData(formData) {
 }
 
 function mdToHtml(md) {
-  return markdown.toHTML(md)
+  try {
+    return markdown.toHTML(md)
+  } catch (e) {
+    console.error(new Date(), e)
+    return `<p>${md}</p>`
+  }
 }
 
 module.exports = router
