@@ -73,10 +73,10 @@ html
                     = `Date: ${event.date}`
                     br
                   != mdToHtml(event.blurb || ``)
-                  //
+                  if ctaLabel
                     ul.actions
                       li
-                        a.button.style1(href=`#`) Learn more
+                        a.button.style1(href=ctaUrl)= ctaLabel
 
     - projects = projects.filter(i => i.visibility === `published`)
     if projects.length

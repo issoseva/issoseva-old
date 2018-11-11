@@ -50,9 +50,9 @@ async function syncFieldbookImages(rows, imageFields) {
         const attachmentPath = `${attachmentsDir}/${imagePath}`
         row[imageField] = `/attachments/${imagePath}`
 
-        if (!fs.existsSync(attachmentPath)) {
-          downloadFieldbookAttachment(imageUrl, attachmentPath)
-        }
+        // if (!fs.existsSync(attachmentPath)) {
+        //   downloadFieldbookAttachment(imageUrl, attachmentPath)
+        // }
       }
     }
   }
@@ -100,6 +100,7 @@ function filterEvents(events) {
 router.get(`/`, (req, res) => {
   res.setHeader(`Content-Type`, `text/html`)
   res.end(indexHtml)
+  compileIndexHtml()
 })
 
 router.post(`/api/fieldbook-hook`, async (req, res) => {
