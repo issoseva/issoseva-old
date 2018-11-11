@@ -1,3 +1,4 @@
+/* eslint no-unused-vars:0 */
 const fs = require(`fs`)
 const promisify = require(`util`).promisify
 const readFile = promisify(fs.readFile)
