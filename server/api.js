@@ -30,10 +30,6 @@ async function compileIndexHtml() {
   const projects = JSON.parse(await readFile(`${fieldbookDir}/projects.json`))
   const testimonials = JSON.parse(await readFile(`${fieldbookDir}/testimonials.json`))
 
-  syncFieldbookImages(stats, [`image`])
-  syncFieldbookImages(events, [`image`])
-  syncFieldbookImages(projects, [`image`] )
-
   // Pre-compile template into memory
   const indexTemplate = pug.compile(await readFile(`${__dirname}/index.pug`))
   indexHtml = indexTemplate({ info, events, stats, projects, testimonials, mdToHtml })

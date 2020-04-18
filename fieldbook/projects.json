@@ -1,10 +1,37 @@
 [
   {
     "id": 12,
+    "name": "COVID-19 Fund Relief",
+    "visibility": "published",
+    "blurb": "International Swaminarayan Satsang Organization is leading and coordinating the global effort with Covid-19 Relief Fund supporting families and individuals to prevent, detect, and respond to the pandemic. If you are in a financial position to do so, please consider making a donation to directly help combat the COVID-19 pandemic by visiting [issousa.org/covid-19](http://www.issousa.org/covid19)",
+    "image": "/attachments/covid-19-fund-relief.jpg",
+    "video": null,
+    "events": []
+  },
+  {
+    "id": 12,
+    "name": "Pledge for COVID-19 Service",
+    "visibility": "published",
+    "blurb": "With the intent of ensuring wellness of all humanity, we as a community organization pledge to serve in all possible manners to overcome COVID-19. See [Sankalpa Patra](/attachments/sankalpa-patra.pdf)",
+    "image": "/attachments/sankalpa-patra.jpg",
+    "video": null,
+    "events": []
+  },
+  {
+    "id": 12,
     "name": "ISSO Seva Plan 2019 & 2018 Accomplishments",
     "visibility": "published",
     "blurb": "[ISSO Seva 2019 Plan & 2018 Accomplishments.pdf](https://www.dropbox.com/s/opl85lfuona5w27/ISSO%20Seva%202019%20Plan%20%26%202018%20Accomplishments.pdf?dl=0)",
-    "image": "https://fieldbook.com/attachments/59ab1dc0c21591030076b583/isso_seva_plan_2019.jpg",
+    "image": "/attachments/isso_seva_plan_2019.jpg",
+    "video": null,
+    "events": []
+  },
+  {
+    "id": 12,
+    "name": "ISSO Seva Plan 2019 & 2018 Accomplishments",
+    "visibility": "published",
+    "blurb": "[ISSO Seva 2019 Plan & 2018 Accomplishments.pdf](https://www.dropbox.com/s/opl85lfuona5w27/ISSO%20Seva%202019%20Plan%20%26%202018%20Accomplishments.pdf?dl=0)",
+    "image": "/attachments/isso_seva_plan_2019.jpg",
     "video": null,
     "events": []
   },
@@ -29,7 +56,7 @@
     "name": "Uganda Medical Mission",
     "visibility": "published",
     "blurb": "ISSO Seva co-sponsored with Indo-Africa Charitable Society of Canada, a free primary care health camp in Lira Uganda. We served 24989 patients in 10 days covering General Practice, Pediatrics, Dental, OBGY, and Eye care. We also donated computers, food, and clothing at orphanages and schools.",
-    "image": "https://fieldbook.com/attachments/59ab1dc0c21591030076b583/350a0a17-2edf-4b8d-8d97-d9fa12068812/0e9f6b16-0813-49b4-b426-c5630e1479f9_bccaf9bc-d0e5-485f-a05b-0e8a4c9e6656_IMG_2755.JPG",
+    "image": "/attachments/350a0a17-2edf-4b8d-8d97-d9fa12068812_0e9f6b16-0813-49b4-b426-c5630e1479f9_bccaf9bc-d0e5-485f-a05b-0e8a4c9e6656_IMG_2755.JPG",
     "video": "https://www.youtube.com/embed/E1O4Z21t9AY",
     "donate_link": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=729BAK6DXNN26",
     "events": []
@@ -39,7 +66,7 @@
     "name": "Soup kitchen",
     "visibility": "published",
     "blurb": "Volunteer team in Seattle started soup kitchen service  at a  shelter for women and child in need once a month. Since then the service has been expanded to multiple soup kitchens per month.",
-    "image": "https://fieldbook.com/attachments/59ab1dc0c21591030076b583/324f91ec-0853-431b-8bbf-527d1c765482/67ea4518-da46-4eb3-9e2d-5f15218a22cb_freesoup.png",
+    "image": "/attachments/324f91ec-0853-431b-8bbf-527d1c765482_67ea4518-da46-4eb3-9e2d-5f15218a22cb_freesoup.png",
     "video": null,
     "donate_link": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=729BAK6DXNN26",
     "events": [
@@ -54,7 +81,7 @@
     "name": "ISSO Seva Accomplishments 2017",
     "visibility": "published",
     "blurb": "[ISSO Seva Accomplishments.pdf](https://www.dropbox.com/s/beqeeo3dldhy309/ISSO_SEVA_2017_2018.pdf?dl=0)",
-    "image": "https://fieldbook.com/attachments/59ab1dc0c21591030076b583/66cd095b-b5ed-4f43-8024-b69660192645/96f6ee25-9530-4d10-a935-4c9b862e3315_2017_2018.PNG",
+    "image": "/attachments/66cd095b-b5ed-4f43-8024-b69660192645_96f6ee25-9530-4d10-a935-4c9b862e3315_2017_2018.PNG",
     "video": null,
     "donate_link": "https://www.dropbox.com/s/beqeeo3dldhy309/ISSO_SEVA_2017_2018.pdf?dl=0",
     "events": []
