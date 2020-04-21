@@ -46,6 +46,10 @@
         "--platform",
         "managed"
       ]
+    },
+    {
+      "name": "gcr.io/cloud-builders/curl",
+      "args": ["-I", "https://issoseva.org"]
     }
   ]
 }
