@@ -8,9 +8,7 @@
     "build": "yarn build-sass",
     "build-sass": "node-sass ./www/assets/sass/main.scss ./www/assets/css/main.css",
     "docker-build": "docker build . -t us.gcr.io/issoseva-org/issoseva.org",
-    "docker-push": "docker push us.gcr.io/issoseva-org/issoseva.org",
     "docker-run": "docker run -p 9001:9000 -e PORT=9000 us.gcr.io/issoseva-org/issoseva.org ",
-    "cloudrun-deploy": "gcloud --project issoseva-org run deploy issoseva-org --image us.gcr.io/issoseva-org/issoseva.org:latest --region us-central1 --platform managed",
     "build-deploy": "yarn docker-build && yarn docker-push && yarn cloudrun-deploy",
     "lint": "eslint -c .eslintrc.json server/*.js",
     "start": "node server.js"
