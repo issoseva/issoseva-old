@@ -120,7 +120,8 @@ function filterEvents(events) {
 router.get(`/`, (req, res) => {
   res.setHeader(`Content-Type`, `text/html`);
   res.end(indexHtml);
-  compileIndexHtml();
+  console.log(`request`, req.url);
+  // compileIndexHtml();
 });
 
 router.post(`/api/fieldbook-hook`, async (req, res) => {

@@ -8,4 +8,5 @@ RUN yarn install --frozen-lockfile
 # See .dockerignore for ignore list
 COPY . .
 RUN ls -lah && yarn build
-CMD yarn start
+
+ENTRYPOINT ["yarn", "start"]
