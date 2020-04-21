@@ -28,7 +28,7 @@
         "deploy",
         "issoseva-org",
         "--image",
-        "us.gcr.io/issoseva-org/issoseva.org:COMMIT_SHA",
+        "us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA",
         "--region",
         "us-central1",
         "--platform",
