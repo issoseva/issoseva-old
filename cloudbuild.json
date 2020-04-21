@@ -1,6 +1,14 @@
 {
   "steps": [
     {
+      "name": "gcr.io/cloud-builders/gcloud",
+      "entrypoint": "bash",
+      "args": [
+        "-c",
+        "gcloud secrets versions access latest --secret=issoseva-org-config > config.json"
+      ]
+    },
+    {
       "name": "gcr.io/cloud-builders/docker",
       "args": ["pull", "us.gcr.io/issoseva-org/issoseva.org:latest"]
     },
