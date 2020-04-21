@@ -14,7 +14,7 @@ const config = require(`../config`);
 const markdown = require(`markdown`).markdown;
 const bookConfig = config.fieldbook;
 // const book = new Fieldbook(bookConfig);
-const fieldbookAttachmentsUrl = `https://fieldbook.com/attachments/${bookConfig.book}/`;
+// const fieldbookAttachmentsUrl = `https://fieldbook.com/attachments/${bookConfig.book}/`;
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`);
 const attachmentsDir = path.normalize(`${__dirname}/../www/attachments`);
 const mailer = nodemailer.createTransport(config.smtp);
@@ -54,46 +54,46 @@ async function compileIndexHtml() {
   console.log(`Compiled indexHtml ${indexHtml.length} bytes`);
 }
 
-async function syncFieldbookImages(rows, imageFields) {
-  await mkdirp(attachmentsDir);
+// async function syncFieldbookImages(rows, imageFields) {
+//   await mkdirp(attachmentsDir);
 
-  for (let row of rows) {
-    for (let imageField of imageFields) {
-      const imageUrl = row[imageField];
-      if (imageUrl && imageUrl.startsWith(fieldbookAttachmentsUrl)) {
-        const imagePath = imageUrl
-          .replace(fieldbookAttachmentsUrl, ``)
-          .replace(/\//g, `_`); // No slashes
-        const attachmentPath = `${attachmentsDir}/${imagePath}`;
-        row[imageField] = `/attachments/${imagePath}`;
+//   for (let row of rows) {
+//     for (let imageField of imageFields) {
+//       const imageUrl = row[imageField];
+//       if (imageUrl && imageUrl.startsWith(fieldbookAttachmentsUrl)) {
+//         const imagePath = imageUrl
+//           .replace(fieldbookAttachmentsUrl, ``)
+//           .replace(/\//g, `_`); // No slashes
+//         const attachmentPath = `${attachmentsDir}/${imagePath}`;
+//         row[imageField] = `/attachments/${imagePath}`;
 
-        // if (!fs.existsSync(attachmentPath)) {
-        //   downloadFieldbookAttachment(imageUrl, attachmentPath)
-        // }
-      }
-    }
-  }
-}
+//         // if (!fs.existsSync(attachmentPath)) {
+//         //   downloadFieldbookAttachment(imageUrl, attachmentPath)
+//         // }
+//       }
+//     }
+//   }
+// }
 
-async function downloadFieldbookAttachment(fileUrl, diskPath) {
-  try {
-    console.log(`Downloading ${fileUrl}`);
-    requestify.responseEncoding(`binary`);
-    const resp = await requestify.get(fileUrl, {
-      redirect: true,
-      auth: {
-        username: bookConfig.username,
-        password: bookConfig.password,
-      },
-    });
+// async function downloadFieldbookAttachment(fileUrl, diskPath) {
+//   try {
+//     console.log(`Downloading ${fileUrl}`);
+//     requestify.responseEncoding(`binary`);
+//     const resp = await requestify.get(fileUrl, {
+//       redirect: true,
+//       auth: {
+//         username: bookConfig.username,
+//         password: bookConfig.password,
+//       },
+//     });
 
-    const fileContents = resp.body;
-    writeFile(diskPath, fileContents, { encoding: `binary` });
-    console.log(`Downloaded ${diskPath} ${fileContents.length} bytes`);
-  } catch (e) {
-    console.error(e);
-  }
-}
+//     const fileContents = resp.body;
+//     writeFile(diskPath, fileContents, { encoding: `binary` });
+//     console.log(`Downloaded ${diskPath} ${fileContents.length} bytes`);
+//   } catch (e) {
+//     console.error(e);
+//   }
+// }
 
 // Initial cached compile
 compileIndexHtml();
