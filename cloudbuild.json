@@ -10,6 +10,8 @@
         "build",
         "-t",
         "us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA",
+        "--cache-from",
+        "us.gcr.io/issoseva-org/issoseva.org:latest",
         "."
       ]
     },
