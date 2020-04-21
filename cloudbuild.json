@@ -30,6 +30,10 @@
       "args": ["push", "us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA"]
     },
     {
+      "name": "gcr.io/cloud-builders/docker",
+      "args": ["push", "us.gcr.io/issoseva-org/issoseva.org:latest"]
+    },
+    {
       "name": "gcr.io/cloud-builders/gcloud",
       "args": [
         "run",
