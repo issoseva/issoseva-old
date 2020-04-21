@@ -49,7 +49,7 @@
     },
     {
       "name": "gcr.io/cloud-builders/curl",
-      "args": ["-I", "https://issoseva.org"]
+      "args": ["-s", "-I", "https://issoseva.org"]
     }
   ]
 }
