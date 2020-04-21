@@ -1,17 +1,17 @@
-const connect = require(`connect`)
-const config = require(`./config`)
-const api = require(`./server/api`)
+const connect = require(`connect`);
+const config = require(`./config`);
+const api = require(`./server/api`);
 
-const app = connect()
+const app = connect();
 // app.use(require(`quip`)) // Needs to be first because it does header hacking
-app.use(require(`response-time`)())
-app.use(require(`compression`)())
-app.use(require(`body-parser`).json())
-app.use(require(`body-parser`).urlencoded({ extended: true }))
-app.use(api)
-app.use(require(`serve-static`)(`www`))
+app.use(require(`response-time`)());
+app.use(require(`compression`)());
+app.use(require(`body-parser`).json());
+app.use(require(`body-parser`).urlencoded({ extended: true }));
+app.use(api);
+app.use(require(`serve-static`)(`www`));
 
 // Listen for requests
-const server = app.listen(config.port, () => {
-  console.log(`Serving humanity on port ` + server.address().port)
-})
+const server = app.listen(process.env.PORT || config.port, () => {
+  console.log(`Serving humanity on port ` + server.address().port);
+});

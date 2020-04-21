@@ -1,29 +1,17 @@
 {
-    "env": {
-        "es6": true,
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 2017
-    },
-    "extends": "eslint:recommended",
-    "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "backtick"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
-        "no-console": "off"
-    }
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "backtick"],
+    "semi": ["error", "always"],
+    "no-console": "off"
+  }
 }
