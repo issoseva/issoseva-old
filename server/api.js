@@ -8,12 +8,12 @@ const requestify = require(`requestify`);
 const path = require(`path`);
 const pug = require(`pug`);
 const router = require(`router`)();
-const Fieldbook = require(`node-fieldbook`);
+// const Fieldbook = require(`node-fieldbook`);
 const nodemailer = require(`nodemailer`);
 const config = require(`../config`);
 const markdown = require(`markdown`).markdown;
 const bookConfig = config.fieldbook;
-const book = new Fieldbook(bookConfig);
+// const book = new Fieldbook(bookConfig);
 const fieldbookAttachmentsUrl = `https://fieldbook.com/attachments/${bookConfig.book}/`;
 const fieldbookDir = path.normalize(`${__dirname}/../fieldbook`);
 const attachmentsDir = path.normalize(`${__dirname}/../www/attachments`);
@@ -124,28 +124,28 @@ router.get(`/`, (req, res) => {
   // compileIndexHtml();
 });
 
-router.post(`/api/fieldbook-hook`, async (req, res) => {
-  console.log(`fieldbook-hook`);
-  const hook = req.body;
-  // console.log(JSON.stringify(hook, null, `  `))
+// router.post(`/api/fieldbook-hook`, async (req, res) => {
+//   console.log(`fieldbook-hook`);
+//   const hook = req.body;
+//   // console.log(JSON.stringify(hook, null, `  `))
 
-  // We get the change in hook, we should probably modify in place
-  // rather than fetching entire table
-  // but fetching entire table always gives us most consistent view
-  if (hook) {
-    const sheet = Object.keys(hook.changes)[0];
-    const rows = await book.getSheet(sheet);
-    const json = JSON.stringify(rows, null, `  `);
-    const jsonFile = `${fieldbookDir}/${sheet}.json`;
+//   // We get the change in hook, we should probably modify in place
+//   // rather than fetching entire table
+//   // but fetching entire table always gives us most consistent view
+//   if (hook) {
+//     const sheet = Object.keys(hook.changes)[0];
+//     const rows = await book.getSheet(sheet);
+//     const json = JSON.stringify(rows, null, `  `);
+//     const jsonFile = `${fieldbookDir}/${sheet}.json`;
 
-    // console.log(json)
-    await writeFile(jsonFile, json);
-    console.log(`Written ${rows.length} records to ${jsonFile}`);
-    compileIndexHtml();
-  }
+//     // console.log(json)
+//     await writeFile(jsonFile, json);
+//     console.log(`Written ${rows.length} records to ${jsonFile}`);
+//     compileIndexHtml();
+//   }
 
-  res.end(``);
-});
+//   res.end(``);
+// });
 
 router.post(`/api/email`, async (req, res) => {
   const formData = req.body;
