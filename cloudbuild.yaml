@@ -1,5 +1,6 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA', '.']
-  - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA']
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["build", "-t", "us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA", "."]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us.gcr.io/issoseva-org/issoseva.org:$COMMIT_SHA"]
