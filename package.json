@@ -6,8 +6,12 @@
   "main": "server.js",
   "scripts": {
     "build": "yarn build-sass",
-    "build-sass": "node-sass www/assets/sass/main.scss www/assets/css/main.css",
-    "sync_fieldbook": "node scripts/sync_fieldbook.js"
+    "build-sass": "node-sass ./www/assets/sass/main.scss ./www/assets/css/main.css",
+    "docker-build": "docker build . -t us.gcr.io/issoseva-org/issoseva.org",
+    "docker-push": "docker build . -t us.gcr.io/issoseva-org/issoseva.org",
+    "docker-run": "docker run -p 80:80 us.gcr.io/issoseva-org/issoseva.org",
+    "lint": "eslint -c .eslintrc.json server/*.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

@@ -8,10 +8,9 @@ branches:
 before_install:
   - sudo pip install fabric
 script:
-  - eslint -c .eslintrc.json server/*.js
+  - yarn lint
   - echo -e $DEPLOY_KEY > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
   - ssh -o StrictHostKeyChecking=no root@issoseva.org 'echo ssh setup'
   - fab deploy
   - sleep 2 && curl -s http://issoseva.org | grep 'ISSO SEVA'
-

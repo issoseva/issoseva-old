@@ -1,0 +1,9 @@
+# ignore everything other than the following files and folders
+*
+!fieldbook
+!server
+!www
+!config.json
+!package.json
+!server.js
+!yarn.lock
